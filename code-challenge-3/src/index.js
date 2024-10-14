@@ -18,6 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
           li.innerText = film.title;
           li.dataset.id = film.id;
 
+          function deleteFilm(filmId) {
+            fetch(`http://localhost:3000/films/${filmId}`, {
+              method: "DELETE",
+            })
+              
+          }
+
+
+
+
+
           //delete button
       const deleteButton = document.createElement("button");
       deleteButton.className = "button delete";
@@ -93,23 +104,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
   
-    // Function to delete a film
-    function deleteFilm(filmId) {
-      fetch(`http://localhost:3000/films/${filmId}`, {
-        method: "DELETE",
-      })
-        .then(() => {
-          // Remove the film from the list 
-          const filmItem = document.querySelector(`[data-id='${filmId}']`);
-          if (filmItem) {
-            filmList.removeChild(filmItem);
-          }
-        });
-    }
-    filmList.addEventListener("click", (event) => {
-      if (event.target.classList.contains("delete-button")) {
-        const filmId = event.target.parentElement.dataset.id;
-        deleteFilm(filmId);
-      }
-    });
+    
   });
