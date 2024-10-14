@@ -25,11 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
               
           }
 
-
-
-
-
-          //delete button
+     //delete button
       const deleteButton = document.createElement("button");
       deleteButton.className = "button delete";
       deleteButton.innerText = "delete";
